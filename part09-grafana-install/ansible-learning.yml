@@ -5,7 +5,10 @@
   tasks:
     - name: Install nessesary package
       apt: 
-        name: apt-transport-https
+        name:
+          - apt-transport-https
+          - curl
+          - gnupg
         state: present
         update_cache: yes
 
