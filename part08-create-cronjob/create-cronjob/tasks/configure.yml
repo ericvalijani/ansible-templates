@@ -1,3 +1,9 @@
+- name: Copy memory check script to remote host
+  copy:
+    src: files/check-memory.sh
+    dest: "{{ job_path }}"
+    mode: '0755'
+
 - name: Install cronjob
   cron:
     name: Check host memory
@@ -8,4 +14,3 @@
     weekday: "*"
     job: "{{ job_path }} >> {{ log_path }} 2>&1"
     user: root
-
